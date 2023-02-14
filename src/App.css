@@ -12,9 +12,9 @@
 }
   
 .right .top{
-    display: flex;
-    justify-content: end;
-    gap:2rem;
+  display: flex;
+  justify-content: flex-end;
+  gap:2rem;
 }
   
 .right .top button{

@@ -4,6 +4,8 @@ import closeLogo from '../../assets/images/close.svg'
 import logo from '../../assets/images/logo.png'
 
 export default function Navbar () {
+  var currentpage = window.location.pathname;
+
   return (
     
         <aside >
@@ -20,22 +22,22 @@ export default function Navbar () {
             </div>
 
             <div className="sidebar">
-                <a href={"#dash"} className="active">
+                <a href={"/"} className={currentpage==="/"?"active":""} >
                     <span className="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href={"#dash"}>
+                <a href={"/customers"} className={currentpage==="/customers"?"active":""}>
                     <span className="material-icons-sharp">person_outline</span>
                     <h3>Customers</h3>
                 </a>
 
-                <a href={"#dash"}>
+                <a href={"/orders"} className={currentpage==="/orders"?"active":""}>
                     <span className="material-icons-sharp">receipt_long</span>
                     <h3>Orders</h3>
                 </a>
 
-                <a href={"#dash"}>
+                <a href={"#dash"} className="">
                     <span className="material-icons-sharp">insights</span>
                     <h3>Analytics</h3>
                 </a>
@@ -46,7 +48,7 @@ export default function Navbar () {
                     <span className='message-count'>12</span>
                 </a>
 
-                <a href={"#dash"}>
+                <a href={"/products"} className={currentpage==="/products"?"active":""}>
                     <span className="material-icons-sharp">inventory</span>
                     <h3>Products</h3>
                 </a>
@@ -56,17 +58,17 @@ export default function Navbar () {
                     <h3>Reports</h3>
                 </a>
 
-                <a href={"#dash"}>
+                <a href={"/setting"} className={currentpage==="/setting"?"active":""}>
                     <span className="material-icons-sharp">settings</span>
                     <h3>Settings</h3>
                 </a>
 
-                <a href={"#dash"}>
+                <a href={"/products/add"} className={currentpage==="/products/add"?"active":""}>
                     <span className="material-icons-sharp">add</span>
                     <h3>Add Product</h3>
                 </a>
 
-                <a href={"#dash"} >
+                <a href={"/logout"} >
                     <span className="material-icons-sharp">logout</span>
                     <h3>Logout</h3>
                 </a>
