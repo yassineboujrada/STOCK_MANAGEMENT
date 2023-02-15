@@ -42,21 +42,21 @@ export default function Navbar () {
                     <h3>Analytics</h3>
                 </a>
 
-                <a href={"#dash"}>
+                {/* <a href={"#dash"}>
                     <span className="material-icons-sharp">mail_outline</span>
                     <h3>Messages</h3>
                     <span className='message-count'>12</span>
-                </a>
+                </a> */}
 
                 <a href={"/products"} className={currentpage==="/products"?"active":""}>
                     <span className="material-icons-sharp">inventory</span>
                     <h3>Products</h3>
                 </a>
 
-                <a href={"#dash"}>
+                {/* <a href={"#dash"}>
                     <span className="material-icons-sharp">report_gmailerrorred</span>
                     <h3>Reports</h3>
-                </a>
+                </a> */}
 
                 <a href={"/setting"} className={currentpage==="/setting"?"active":""}>
                     <span className="material-icons-sharp">settings</span>
