@@ -7,12 +7,11 @@ export default function Navbar () {
   var currentpage = window.location.pathname;
 
   return (
-    
-        <aside >
+        <aside>
             <div className='top'>
                 <div className="logo">
                     <img src={logo} alt="logo"/>
-                    <h2>EGA<span className="danger">TOR</span></h2>
+                    <h2>My ST<span style={{"color":"#ff9800"}}>ORE</span></h2>
                 </div>
                 <div className="close" id="close-btn">
                     <span className="material-symbols-outlined">
@@ -42,21 +41,11 @@ export default function Navbar () {
                     <h3>Analytics</h3>
                 </a>
 
-                {/* <a href={"#dash"}>
-                    <span className="material-icons-sharp">mail_outline</span>
-                    <h3>Messages</h3>
-                    <span className='message-count'>12</span>
-                </a> */}
 
                 <a href={"/products"} className={currentpage==="/products"?"active":""}>
                     <span className="material-icons-sharp">inventory</span>
                     <h3>Products</h3>
                 </a>
-
-                {/* <a href={"#dash"}>
-                    <span className="material-icons-sharp">report_gmailerrorred</span>
-                    <h3>Reports</h3>
-                </a> */}
 
                 <a href={"/setting"} className={currentpage==="/setting"?"active":""}>
                     <span className="material-icons-sharp">settings</span>
@@ -75,6 +64,5 @@ export default function Navbar () {
             </div>
 
         </aside>
-    // </div>
   )
 }
