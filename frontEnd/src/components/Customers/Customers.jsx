@@ -1,7 +1,17 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import profile_photo from '../../assets/images/profile-1.jpg';
 
 export default function Customers () {
+    const [customers, setCustomers] = useState([]);
+
+    useEffect(() => {
+        fetch("/costumer_data")
+        .then((res) => res.json())
+        .then((data) => {
+            setCustomers(data);
+        });
+    }, []);
+
     return (
         <>
         <main >
@@ -28,99 +38,22 @@ export default function Customers () {
                 <table>
                     <thead>
                         <tr>
-                          <th>Product Number</th>
-                          <th>Product Name</th>
-                          <th>Quantity</th>
-                          <th>Price</th>
-                          <th>Description</th>
+                          <th>Full Name</th>
+                          <th>Addresse</th>
+                          <th>Order Number</th>
+                          <th>Date Of Order</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Foldabl</td>
-                            <td>123456789</td>
-                            <td>Paypal</td>
-                            <td className='warning'>Pending</td>
+                    {customers.map((customer) => (
+                        <tr key={customer._id}>
+                            <td>{customer.fullName}</td>
+                            <td>{customer.adresse}</td>
+                            <td>Order {customer.orders}</td>
+                            <td>{customer.dateOrder}</td>
                         </tr>
-                        <tr>
-                            <td>Foldable mini drone</td>
-                            <td>123456789</td>
-                            <td>Paypal</td>
-                            <td className='warning'>Pending</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable mini drone</td>
-                            <td>123456789</td>
-                            <td>Paypal</td>
-                            <td className='warning'>Pending</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable mini drone</td>
-                            <td>123456789</td>
-                            <td>Paypal</td>
-                            <td className='warning'>Pending</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable mini drone</td>
-                            <td>123456789</td>
-                            <td>Paypal</td>
-                            <td className='warning'>Pending</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable mini drone</td>
-                            <td>123456789</td>
-                            <td>Paypal</td>
-                            <td className='warning'>Pending</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable mini drone</td>
-                            <td>123456789</td>
-                            <td>Paypal</td>
-                            <td className='warning'>Pending</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable mini drone</td>
-                            <td>123456789</td>
-                            <td>Paypal</td>
-                            <td className='warning'>Pending</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable mini drone</td>
-                            <td>123456789</td>
-                            <td>Paypal</td>
-                            <td className='warning'>Pending</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable mini drone</td>
-                            <td>123456789</td>
-                            <td>Paypal</td>
-                            <td className='warning'>Pending</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable mini drone</td>
-                            <td>123456789</td>
-                            <td>Paypal</td>
-                            <td className='warning'>Pending</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable mini drone</td>
-                            <td>123456789</td>
-                            <td>Paypal</td>
-                            <td className='warning'>Pending</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable mini drone</td>
-                            <td>123456789</td>
-                            <td>Paypal</td>
-                            <td className='warning'>Pending</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable mini drone</td>
-                            <td>123456789</td>
-                            <td>Paypal</td>
-                            <td className='warning'>Pending</td>
-                        </tr>
-                    </tbody>
+                    ))}
+                </tbody>
                 </table><br />
                 </div>
     

@@ -1,42 +1,37 @@
-import React,{useState,useEffect}  from 'react'
+import React from 'react'
 import './dash.css'
 import profile_photo from '../../assets/images/profile-1.jpg';
 
 export default function Dashboard (){
 
-  const [data, setdata] = useState({
-    name: "",
-    age: 0,
-    date: "",
-    programming: "",
-});
+//   const [data, setdata] = useState({
+//     name: "",
+//     age: 0,
+//     date: "",
+//     programming: "",
+// });
 
-// Using useEffect for single rendering
-useEffect(() => {
-    // Using fetch to fetch the api from 
-    // flask server it will be redirected to proxy
-    fetch("/data").then((res) =>
-        res.json().then((data) => {
-            // Setting a data from api
-            setdata({
-                name: data.Name,
-                age: data.Age,
-                date: data.Date,
-                programming: data.programming,
-            });
-        })
-    );
-}, []);
+// // Using useEffect for single rendering
+// useEffect(() => {
+//     // Using fetch to fetch the api from 
+//     // flask server it will be redirected to proxy
+//     fetch("/data").then((res) =>
+//         res.json().then((data) => {
+//             // Setting a data from api
+//             setdata({
+//                 name: data.Name,
+//                 age: data.Age,
+//                 date: data.Date,
+//                 programming: data.programming,
+//             });
+//         })
+//     );
+// }, []);
   
   return (
     <>
     <main>
         <h1>Dashboard</h1>
-        <p>{data.name}</p>
-                <p>{data.age}</p>
-                <p>{data.date}</p>
-                <p>{data.programming}</p>
-                
         <br />
         <div className="insights">
         

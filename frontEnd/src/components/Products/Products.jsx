@@ -1,8 +1,18 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import "./Products.css";
 import profile_photo from '../../assets/images/profile-1.jpg';
 
 export default function Products () {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("/prod_data")
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+      });
+  }, []);
+
   return (
     <>
     <main >
@@ -44,7 +54,6 @@ export default function Products () {
             <table>
                 <thead>
                     <tr>
-                      <th>Product Number</th>
                       <th>Product Name</th>
                       <th>Quantity</th>
                       <th>Price</th>
@@ -53,28 +62,29 @@ export default function Products () {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Foldable mini drone</td>
-                        <td>123456789</td>
-                        <td>Paypal</td>
-                        <td>Pending</td>
-                        <td>kefoeofe</td>
-                        <td >
-                          <div className='prod-func'>
-                            <a href={'/products/modifier'}>
-                              <span class="material-icons-sharp">
-                                add
-                              </span>
-                            </a>
-                            
-                            <a href={'/products/delete'}>
-                              <span class="material-icons-sharp">
-                                delete
-                              </span>
-                            </a>
-                          </div>
-                        </td>
-                    </tr>
+                    {products.map((product) => (
+                        <tr key={product._id}>
+                            <td>{product.produitName}</td>
+                            <td>{product.quantity}</td>
+                            <td>{product.price} DH</td>
+                            <td>{product.description}</td>
+                            <td >
+                              <div className='prod-func'>
+                                <a href={`/products/modifier/${product._id}`}>
+                                  <span class="material-icons-sharp">
+                                    add
+                                  </span>
+                                </a>
+                                
+                                <a href={`/products/delete/${product._id}`}>
+                                  <span class="material-icons-sharp">
+                                    delete
+                                  </span>
+                                </a>
+                              </div>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table><br />
             </div>
