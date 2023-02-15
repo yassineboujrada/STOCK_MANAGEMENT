@@ -52,11 +52,6 @@ export default function Navbar () {
                     <h3>Settings</h3>
                 </a>
 
-                <a href={"/products/add"} className={currentpage==="/products/add"?"active":""}>
-                    <span className="material-icons-sharp">add</span>
-                    <h3>Add Product</h3>
-                </a>
-
                 <a href={"/logout"} >
                     <span className="material-icons-sharp">logout</span>
                     <h3>Logout</h3>
