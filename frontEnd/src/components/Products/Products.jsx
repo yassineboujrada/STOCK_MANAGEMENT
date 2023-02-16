@@ -70,13 +70,13 @@ export default function Products () {
                             <td>{product.description}</td>
                             <td >
                               <div className='prod-func'>
-                                <a href={`/products/modifier/${product._id}`}>
+                                <a href={`/products/modifier/${product._id}`} style={{"color":"var(--color-primary)"}}>
                                   <span class="material-icons-sharp">
                                     add
                                   </span>
                                 </a>
                                 
-                                <a href={`/products/delete/${product._id}`}>
+                                <a href={`/products/delete/${product._id}`} className="danger">
                                   <span class="material-icons-sharp">
                                     delete
                                   </span>

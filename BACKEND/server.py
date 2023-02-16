@@ -6,6 +6,8 @@ from bson.objectid import ObjectId
 
 load_dotenv()
 import os
+from flask_cors import CORS
+
 
 URL_LINK = os.getenv("DB_URL")
 app = Flask(__name__)
@@ -14,10 +16,12 @@ app.secret_key = "maked by yassine boujrada"
 cluster = MongoClient(URL_LINK)
 db = cluster["stock"]
 
+CORS(app, resources={r"/*": {"origins": "*"}})
+
 @app.route('/prod_data')
 def dash():
     l=[]
-    result = db["product"].find({})
+    result = db["product"].find({}).sort("date",pymongo.DESCENDING)
     for docs in list(result):
         docs["_id"] = str(docs["_id"])
         l.append(docs)
@@ -40,6 +44,13 @@ def costumer():
         docs["_id"] = str(docs["_id"])
         l.append(docs)
     return jsonify(list(l))
+
+@app.route('/add_prod',methods=["POST"])
+def add_prod():
+    data = request.get_json()
+    print(data) 
+    db["product"].insert_one(data)
+    return jsonify({"status":"ok"})
 
 if __name__=="__main__":
     app.run(port="3001",debug=True)
