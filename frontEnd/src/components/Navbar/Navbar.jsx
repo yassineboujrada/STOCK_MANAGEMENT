@@ -36,12 +36,6 @@ export default function Navbar () {
                     <h3>Orders</h3>
                 </a>
 
-                <a href={"#dash"} className="">
-                    <span className="material-icons-sharp">insights</span>
-                    <h3>Analytics</h3>
-                </a>
-
-
                 <a href={"/products"} className={currentpage==="/products"?"active":""}>
                     <span className="material-icons-sharp">inventory</span>
                     <h3>Products</h3>

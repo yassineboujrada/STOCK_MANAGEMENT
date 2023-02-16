@@ -1,4 +1,4 @@
-from flask import Flask,render_template,redirect,session,request,jsonify
+from flask import Flask,request,jsonify
 import pymongo
 from pymongo import MongoClient
 from dotenv import load_dotenv
@@ -9,7 +9,7 @@ import os
 from flask_cors import CORS
 
 
-URL_LINK = os.getenv("DB_URL")
+URL_LINK = os.getenv("URL_LINK")
 app = Flask(__name__)
 app.secret_key = "maked by yassine boujrada"
 

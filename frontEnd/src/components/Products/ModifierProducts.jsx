@@ -14,11 +14,11 @@ export default function ModifierProducts () {
     const onSubmitForm = async (e,id) => {
         e.preventDefault();
 
-        fetch(`http://localhost:3001/update_prod/${id}`, {
+        fetch(`/update_prod/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json" , 
-                "Access-Control-Allow-Origin": "http://localhost:3001/*",
+                "Access-Control-Allow-Origin": "/*",
                 "Access-Control-Allow-Credentials": "true", 
                 "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"
              },

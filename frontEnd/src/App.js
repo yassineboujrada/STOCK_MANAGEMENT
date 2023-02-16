@@ -22,7 +22,7 @@ function App() {
             <Route path="/products/modifier/:id" element={<ModifierProducts />} />
             <Route path="/setting" element={<Setting />} />
           </Route>
-          <Route path="*" element={<h1>hello </h1>} />
+          <Route path="*" element={<h1>This link not authorized </h1>} />
         </Routes>
     </BrowserRouter>
 

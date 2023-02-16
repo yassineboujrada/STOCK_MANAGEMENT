@@ -16,7 +16,7 @@ export default function Products () {
   }, []);
 
   const delete_this = (id) => {
-    fetch(`http://localhost:3001/delete_prod/${id}`, {
+    fetch(`/delete_prod/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

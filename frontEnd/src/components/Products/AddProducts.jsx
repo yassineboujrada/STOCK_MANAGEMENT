@@ -14,11 +14,11 @@ export default function AddProducts () {
     const onSubmitForm = async (e) => {
         e.preventDefault();
 
-        fetch(`http://localhost:3001/add_prod`, {
+        fetch(`/add_prod`, {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json" , 
-                "Access-Control-Allow-Origin": "http://localhost:3001/*",
+                "Access-Control-Allow-Origin": "/*",
                 "Access-Control-Allow-Credentials": "true", 
                 "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"
             },
