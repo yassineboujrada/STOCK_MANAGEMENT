@@ -56,12 +56,7 @@ export default function Customers () {
                 </tbody>
                 </table><br />
                 </div>
-    
-                
-        
-        
         </main>
-        
       </>
       )
 }
