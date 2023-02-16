@@ -2,7 +2,7 @@ import React from 'react'
 import './navbar.css'
 import closeLogo from '../../assets/images/close.svg'
 import logo from '../../assets/images/logo.png'
-
+import { NavLink } from 'react-router-dom'
 export default function Navbar () {
   var currentpage = window.location.pathname;
 
@@ -21,35 +21,35 @@ export default function Navbar () {
             </div>
 
             <div className="sidebar">
-                <a href={"/"} className={currentpage==="/"?"active":""} >
+                <NavLink to="/">
                     <span className="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
-                </a>
+                </NavLink>
 
-                <a href={"/customers"} className={currentpage==="/customers"?"active":""}>
+                <NavLink to="/customers">
                     <span className="material-icons-sharp">person_outline</span>
                     <h3>Customers</h3>
-                </a>
+                </NavLink>
 
-                <a href={"/orders"} className={currentpage==="/orders"?"active":""}>
+                <NavLink to="/orders">
                     <span className="material-icons-sharp">receipt_long</span>
                     <h3>Orders</h3>
-                </a>
+                </NavLink>
 
-                <a href={"/products"} className={currentpage==="/products"?"active":""}>
+                <NavLink to="/products">
                     <span className="material-icons-sharp">inventory</span>
                     <h3>Products</h3>
-                </a>
+                </NavLink>
 
-                <a href={"/setting"} className={currentpage==="/setting"?"active":""}>
+                <NavLink to="/setting">
                     <span className="material-icons-sharp">settings</span>
                     <h3>Settings</h3>
-                </a>
+                </NavLink>
 
-                <a href={"/logout"} >
+                <NavLink to="/logout" >
                     <span className="material-icons-sharp">logout</span>
                     <h3>Logout</h3>
-                </a>
+                </NavLink>
             </div>
 
         </aside>
