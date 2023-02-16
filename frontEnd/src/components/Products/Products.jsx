@@ -1,8 +1,10 @@
 import React,{useState,useEffect} from 'react'
 import "./Products.css";
 import profile_photo from '../../assets/images/profile-1.jpg';
+import { useNavigate } from "react-router-dom";
 
 export default function Products () {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -12,6 +14,22 @@ export default function Products () {
         setProducts(data);
       });
   }, []);
+
+  const delete_this = (id) => {
+    fetch(`http://localhost:3001/delete_prod/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === false) {
+          alert("error");
+        }
+        if (data.status === "ok") {
+          console.log(data.msg);
+          window.location.reload();
+        }
+      });
+  };
 
   return (
     <>
@@ -70,17 +88,15 @@ export default function Products () {
                             <td>{product.description}</td>
                             <td >
                               <div className='prod-func'>
-                                <a href={`/products/modifier/${product._id}`} style={{"color":"var(--color-primary)"}}>
-                                  <span class="material-icons-sharp">
+                                  <span class="material-icons-sharp" style={{"color":"var(--color-primary)"}} onClick={()=>{
+                                      return navigate(`/products/modifier/${product._id}`, {state:{ product }} );
+                                    }}>
                                     add
                                   </span>
-                                </a>
                                 
-                                <a href={`/products/delete/${product._id}`} className="danger">
-                                  <span class="material-icons-sharp">
-                                    delete
-                                  </span>
-                                </a>
+                                <span class="material-icons-sharp" style={{"color":"var(--color-danger)"}}  onClick={()=>delete_this(product._id)}>
+                                  delete
+                                </span>
                               </div>
                             </td>
                         </tr>
@@ -88,12 +104,7 @@ export default function Products () {
                 </tbody>
             </table><br />
             </div>
-
-            
-    
-    
     </main>
-    
   </>
   )
 }

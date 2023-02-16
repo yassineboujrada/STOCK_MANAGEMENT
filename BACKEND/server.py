@@ -52,5 +52,17 @@ def add_prod():
     db["product"].insert_one(data)
     return jsonify({"status":"ok"})
 
+@app.route('/delete_prod/<id>',methods=["DELETE"])
+def delete_prod(id):
+    data = request.get_json()
+    db["product"].delete_one({"_id":ObjectId(id)})
+    return jsonify({"status":"ok"})
+
+@app.route('/update_prod/<id>',methods=["PUT"])
+def update_prod(id):
+    data = request.get_json()
+    db["product"].update_one({"_id":ObjectId(id)},{"$set":data})
+    return jsonify({"status":"ok"})
+
 if __name__=="__main__":
     app.run(port="3001",debug=True)
